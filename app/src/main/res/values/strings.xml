@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Blade sample</string>
+    <string name="fake_load">Load fake data</string>
+    <string name="error_message">Error while fetching data.</string>
+</resources>
