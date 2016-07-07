@@ -1,4 +1,4 @@
-package com.centralway.blade;
+package com.centralway.rxphoenix;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

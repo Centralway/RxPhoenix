@@ -1,1 +1,1 @@
-include ':app', ':blade-core'
+include ':app', ':rxPhoenix'

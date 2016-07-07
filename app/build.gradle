@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "com.centralway.blade.sample"
+        applicationId "com.centralway.rxphoenix.sample"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
@@ -24,7 +24,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':blade-core')
+    compile project(':rxPhoenix')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.jakewharton:butterknife:7.0.1'

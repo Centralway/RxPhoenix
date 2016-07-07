@@ -1,11 +1,11 @@
-package com.centralway.blade;
+package com.centralway.rxphoenix;
+
+import android.support.test.runner.AndroidJUnitRunner;
 
 import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Test;
-
-import android.support.test.runner.AndroidJUnitRunner;
 
 import java.util.UUID;
 

@@ -1,40 +1,40 @@
-# Blade
+# RxPhoenix
 Automatic Lifecycle management for Android reactive projects.
 
-### What blade does
-Blade solves your issue with lifecycle management by taking care of any observable trough configuration changes.
-Using Blade you will be able to subscribe any observable and any event emitted will be kept and delivered back to you even if your application is performing a configuration change when the event is returned.
+### What RxPhoenix does
+RxPhoenix solves your issue with lifecycle management by taking care of any observable trough configuration changes.
+Using RxPhoenix you will be able to subscribe any observable and any event emitted will be kept and delivered back to you even if your application is performing a configuration change when the event is returned.
 
 ### Our reason
 There were already solution to avoid leaks, solutions to detach your subscriptions at the right time but there were no
 complete solutions that guarantees you to retrieve always the most up to date information, we wanted to fill the gap.
 
 ### How to use
-- In your Activity/Fragment extend BladeActivity/BladeFragment (it is possible to use composition in case you don't like using inheritance)
+- In your Activity/Fragment extend RxPhoenixActivity/RxPhoenixFragment (it is possible to use composition in case you don't like using inheritance)
 - Create a constant with your observable so that we can map it and reattach when your activity/fragment is performing a
 configuration change.
 ```java
 private static final int OBSERVABLE_ID = 1;
 ```
-- Use your observable as usual but do not subscribe the action just yet, just use ```compose(getBlade().surviveConfigChanges(int))```
+- Use your observable as usual but do not subscribe the action just yet, just use ```compose(getRxPhoenix().surviveConfigChanges(int))```
 instead.
 ```java
 Observable.just("Hello, World!")
    .delay(3, TimeUnit.SECONDS)
    .subscribeOn(Schedulers.io())
-   .compose(getBlade().surviveConfigChanges(OBSERVABLE_ID));
+   .compose(getRxPhoenix().surviveConfigChanges(OBSERVABLE_ID));
 ```
-- Create a method and annotate it with @BladeSubscription specifying the id of your observable. this method does the
+- Create a method and annotate it with @RxPhoenixSubscription specifying the id of your observable. this method does the
 subscription and will be called whenever we need to reattach the observable automatically.
 ```java
-@BladeSubscription(OBSERVABLE_ID)
+@RxPhoenixSubscription(OBSERVABLE_ID)
 public Subscription onSlowRequest(Observable<String> observable) {
     return observable
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new Action1<String>() {
                 @Override
                 public void call(String message) {
-                    Log.i("Blade", message);
+                    Log.i("RxPhoenix", message);
                 }
     });
 }

@@ -1,4 +1,4 @@
-package com.centralway.blade.sample.rest;
+package com.centralway.rxphoenix.sample;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;

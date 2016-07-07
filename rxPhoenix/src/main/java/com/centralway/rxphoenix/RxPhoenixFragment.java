@@ -1,4 +1,4 @@
-package com.centralway.blade;
+package com.centralway.rxphoenix;
 
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
@@ -8,21 +8,21 @@ import android.support.v4.app.Fragment;
 import rx.subjects.BehaviorSubject;
 
 /**
- * This fragment sends information about lifecycle events and holds a reference to {@link Blade}. The events will
+ * This fragment sends information about lifecycle events and holds a reference to {@link RxPhoenix}. The events will
  * be automatically dispatched after the configuration change happened.
  */
 @SuppressWarnings("unused")
-public abstract class BladeFragment extends Fragment {
+public abstract class RxPhoenixFragment extends Fragment {
 
     BehaviorSubject<LifecycleEvent> mLifecycleSubject;
-    Blade mBlade;
+    RxPhoenix mRxPhoenix;
 
     @CallSuper
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLifecycleSubject = BehaviorSubject.create();
-        mBlade = new Blade(mLifecycleSubject.asObservable(), this);
+        mRxPhoenix = new RxPhoenix(mLifecycleSubject.asObservable(), this);
 
         mLifecycleSubject.onNext(new LifecycleEvent.InitEvent(savedInstanceState));
     }
@@ -57,7 +57,7 @@ public abstract class BladeFragment extends Fragment {
         super.onDestroy();
     }
 
-    public Blade getBlade() {
-        return mBlade;
+    public RxPhoenix getRxPhoenix() {
+        return mRxPhoenix;
     }
 }
