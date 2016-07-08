@@ -1,4 +1,4 @@
-package com.centralway.blade.sample;
+package com.centralway.rxphoenix.sample;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,10 +7,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.centralway.blade.BladeActivity;
-import com.centralway.blade.BladeSubscription;
-import com.centralway.blade.sample.rest.FakeApiInterface;
-import com.centralway.blade.sample.rest.FakeApiProvider;
+import com.centralway.rxphoenix.RxPhoenixActivity;
+import com.centralway.rxphoenix.RxPhoenixSubscription;
 import com.google.gson.JsonElement;
 
 import butterknife.Bind;
@@ -23,11 +21,11 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Example activity using Blade.
+ * Example activity using RxPhoenix.
  */
-public class MainActivity extends BladeActivity {
+public class MainActivity extends RxPhoenixActivity {
 
-    public static final String TAG = "BladeSample";
+    public static final String TAG = "Sample";
 
     @Bind(R.id.text) TextView mTextView;
     @Bind(R.id.button) Button mButton;
@@ -58,12 +56,12 @@ public class MainActivity extends BladeActivity {
         Log.d(TAG, "executeAction action called");
         // Subscribes a given observable to this Activity.
         mFakeApiInterface
-                .sleep("3").subscribeOn(Schedulers.io()).compose(getBlade().<JsonElement>surviveConfigChanges
+                .sleep("3").subscribeOn(Schedulers.io()).compose(getRxPhoenix().<JsonElement>surviveConfigChanges
                 (REQUEST_SLOW));
 
     }
 
-    @BladeSubscription(REQUEST_SLOW)
+    @RxPhoenixSubscription(REQUEST_SLOW)
     public Subscription fetchDataSubscription(Observable<JsonElement> observable) {
         Log.d(TAG, "fetchDataSubscription called");
 

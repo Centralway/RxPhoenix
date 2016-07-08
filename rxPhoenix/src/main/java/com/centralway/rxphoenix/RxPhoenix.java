@@ -1,4 +1,4 @@
-package com.centralway.blade;
+package com.centralway.rxphoenix;
 
 import android.os.Bundle;
 import android.support.annotation.CheckResult;
@@ -22,14 +22,14 @@ import rx.subscriptions.CompositeSubscription;
  * Stateless controller that will act as a delegate of any Host View, Activity or Fragment, that wants to register to
  * a cached Observable.
  */
-public final class Blade {
+public final class RxPhoenix {
 
     private static final String METHOD_NOT_DECLARED_EXCEPTION = "Provide public method annotated with " +
-            BladeSubscription.class.getSimpleName() + " that returns subscription for request id: %d";
+            RxPhoenixSubscription.class.getSimpleName() + " that returns subscription for request id: %d";
     private static final String METHOD_ACCESS_EXCEPTION = "Method access modifier must be public for request id: %d";
     private static final String METHOD_INVOCATION_EXCEPTION = "Exception while invoking method for request id: %d";
 
-    private static final String KEY_UUID = "KEY_BLADE_UUID";
+    private static final String KEY_UUID = "KEY_RXPHOENIX_UUID";
 
     /**
      * Host to which events should be delivered
@@ -51,7 +51,7 @@ public final class Blade {
     private final Map<Integer, Method> mMethodHashMap;
 
     @SuppressWarnings("CollectionWithoutInitialCapacity")
-    public Blade(Observable<LifecycleEvent> lifecycleObservable, Object host) {
+    public RxPhoenix(Observable<LifecycleEvent> lifecycleObservable, Object host) {
         mHost = host;
         mCache = Cache.getInstance();
         mDispatchedObservablesHistory = new LinkedHashSet<>();
@@ -80,7 +80,7 @@ public final class Blade {
     private void extractSubscriptionMethods(Object host) {
         Method[] methods = host.getClass().getMethods();
         for (Method method : methods) {
-            BladeSubscription result = method.getAnnotation(BladeSubscription.class);
+            RxPhoenixSubscription result = method.getAnnotation(RxPhoenixSubscription.class);
             if (result != null) {
                 int requestID = result.value();
                 mMethodHashMap.put(requestID, method);

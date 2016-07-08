@@ -1,4 +1,4 @@
-package com.centralway.blade.sample.rest;
+package com.centralway.rxphoenix.sample;
 
 import com.google.gson.JsonElement;
 

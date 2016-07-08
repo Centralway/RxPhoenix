@@ -1,4 +1,4 @@
-package com.centralway.blade;
+package com.centralway.rxphoenix;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy;
  * Note: Annotated method will be called on main thread.
  */
 @Retention(RetentionPolicy.RUNTIME)
-public @interface BladeSubscription {
+public @interface RxPhoenixSubscription {
 
     int value();
 }
