@@ -27,7 +27,7 @@ private static final int OBSERVABLE_ID = 1;
 - Use your observable as usual but do not subscribe the action just yet, just use
 ```compose(getRxPhoenix().surviveConfigChanges(int))```
 instead.
-```java
+```
 Observable.just("Hello, World!")
    .delay(3, TimeUnit.SECONDS)
    .subscribeOn(Schedulers.io())
