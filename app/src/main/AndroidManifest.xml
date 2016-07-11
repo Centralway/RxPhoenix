@@ -8,11 +8,14 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -23,6 +26,8 @@
             android:name=".DialogActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Dialog"/>
+        <activity android:name=".ConfigurationChangeTestActivity"/>
+        <activity android:name=".DemoActivity"/>
     </application>
 
 </manifest>

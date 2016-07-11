@@ -10,15 +10,25 @@
               tools:context=".DemoActivity">
 
     <Button
-        android:id="@+id/launchExampleUsageActivityButton"
-        android:layout_width="match_parent"
+        android:id="@+id/loadDataButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/launch_demo_activity"/>
+        android:text="@string/load_data"/>
 
-    <Button
-        android:id="@+id/launchConfigChangeTestActivityButton"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/resultTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/launch_config_change_test_activity"/>
+        android:layout_marginTop="16dp"
+        android:freezesText="true"
+        android:gravity="bottom"
+        android:visibility="gone"/>
 
 </LinearLayout>

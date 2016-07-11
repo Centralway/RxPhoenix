@@ -1,4 +1,4 @@
-package com.centralway.rxphoenix.sample;
+package com.centralway.rxphoenix.sample.api;
 
 import com.google.gson.JsonElement;
 

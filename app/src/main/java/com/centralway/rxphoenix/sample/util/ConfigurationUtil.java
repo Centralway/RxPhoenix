@@ -1,4 +1,4 @@
-package com.centralway.rxphoenix.sample;
+package com.centralway.rxphoenix.sample.util;
 
 import android.content.res.Configuration;
 import android.util.Log;

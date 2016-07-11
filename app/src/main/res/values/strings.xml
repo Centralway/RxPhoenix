@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RxPhoenix sample</string>
+    <string name="app_name">RxPhoenix</string>
     <string name="load_data">Load data</string>
     <string name="error_message">Error while fetching data.</string>
     <string name="pause_lifecycle_message">This activity is launched only to activate pause and saveInstance
@@ -14,5 +14,7 @@
         android.permission.\nCHANGE_CONFIGURATION\nfrom terminal.</string>
     <string name="permission_needed_title">Permission needed</string>
     <string name="hint_request_duration">Api call min duration: 5s default</string>
+    <string name="launch_demo_activity">Launch example usage activity</string>
+    <string name="launch_config_change_test_activity">Launch configuration change test activity</string>
 
 </resources>

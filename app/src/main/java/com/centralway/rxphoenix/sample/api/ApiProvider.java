@@ -1,4 +1,4 @@
-package com.centralway.rxphoenix.sample;
+package com.centralway.rxphoenix.sample.api;
 
 import android.util.Log;
 
@@ -20,7 +20,7 @@ public final class ApiProvider {
     /**
      * Returns an interface to a slow web service
      */
-    public static ApiInterface getFakeApiInterface() {
+    public static ApiInterface getApiInterface() {
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder().
                 addInterceptor(new Interceptor() {
