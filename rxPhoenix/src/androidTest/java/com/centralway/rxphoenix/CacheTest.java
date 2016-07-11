@@ -1,17 +1,19 @@
 package com.centralway.rxphoenix;
 
-import android.support.test.runner.AndroidJUnitRunner;
+import android.support.test.runner.AndroidJUnit4;
 
 import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.UUID;
 
 import rx.Observable;
 
-public class CacheTest extends AndroidJUnitRunner {
+@RunWith(AndroidJUnit4.class)
+public class CacheTest {
     private static final UUID TEST_UUID = UUID.randomUUID();
 
     @Test

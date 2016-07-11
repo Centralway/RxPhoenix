@@ -39,12 +39,12 @@ public final class RxPhoenix {
     /**
      * UUID identifying this instance upon configuration changes.
      */
-    private UUID mUUID;
+    private UUID mUUID = UUID.randomUUID();
 
     /**
      * Holder for all subscriptions of this host.
      */
-    private CompositeSubscription mSubscription;
+    private CompositeSubscription mSubscription = new CompositeSubscription();
 
     private final Cache mCache;
     private final Set<Integer> mDispatchedObservablesHistory;
@@ -118,8 +118,7 @@ public final class RxPhoenix {
         // If a state exists it means that we are restoring an instance and we can get back the UUID, else we create
         // a new UUID.
         boolean isStateRestored = savedInstanceState != null;
-        mUUID = isStateRestored ? (UUID) savedInstanceState.getSerializable(KEY_UUID) : UUID.randomUUID();
-        mSubscription = new CompositeSubscription();
+        mUUID = isStateRestored ? (UUID) savedInstanceState.getSerializable(KEY_UUID) : mUUID;
     }
 
     /**
