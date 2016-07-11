@@ -25,14 +25,13 @@ configuration change.
 private static final int OBSERVABLE_ID = 1;
 ```
 - Use your observable as usual but do not subscribe the action just yet, just use
-```compose(getRxPhoenix().surviveConfigChanges(int))```
-instead.
-```
+```java
 Observable.just("Hello, World!")
    .delay(3, TimeUnit.SECONDS)
    .subscribeOn(Schedulers.io())
    .compose(getRxPhoenix().surviveConfigChanges(OBSERVABLE_ID));
 ```
+
 - Create a method and annotate it with @RxPhoenixSubscription specifying the id of your observable.
 this method does the subscription and will be called whenever we need to reattach
 the observable automatically.
