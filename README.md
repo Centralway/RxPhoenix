@@ -15,6 +15,11 @@ complete solutions that guarantees you to retrieve always the most up to date in
 to fill the gap.
 
 ### How to use
+- Import it trough maven central in your build.gradle:
+```java
+compile 'com.centralway:rxphoenix:0.1.0'
+```
+
 - In your Activity/Fragment extend RxPhoenixActivity/RxPhoenixFragment (it is possible to use
 composition in case you don't like using inheritance, see
 [Advanced setup with Composition](#advanced-setup-with-composition))
