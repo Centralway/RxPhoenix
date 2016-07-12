@@ -5,7 +5,7 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * Bind a subscription to the request id.
- * <p/>
+ *
  * Note: Annotated method will be called on main thread.
  */
 @Retention(RetentionPolicy.RUNTIME)
