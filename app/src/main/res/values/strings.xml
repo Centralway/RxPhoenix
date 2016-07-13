@@ -1,5 +1,20 @@
 <resources>
-    <string name="app_name">RxPhoenix sample</string>
-    <string name="fake_load">Load fake data</string>
+    <string name="app_name">RxPhoenix</string>
+    <string name="load_data">Load data</string>
     <string name="error_message">Error while fetching data.</string>
+    <string name="pause_lifecycle_message">This activity is launched only to activate pause and saveInstance
+        lifecycle events on previously shown activity.\n\n\nClick anywhere outside to dismiss or press back button.</string>
+    <string name="pause_lifecycle_title">Pausing previous activity</string>
+    <string name="cause_activity_pause">Launch activity on top\n(pause/save instance - resume)</string>
+    <string name="cause_language_change">Cause system language change\n(save instance/destroy/create)</string>
+    <string name="cause_orientation_change">Cause orientation change\n(save instance/destroy/create)</string>
+    <string name="change_config_permission_needed">In order to use this feature, permission
+        \nCHANGE_CONFIGURATION\nmust be granted.\n\nTo do this, please use emulator or any
+        rooted device and execute:\nadb shell pm grant com.centralway.rxphoenix.sample
+        android.permission.\nCHANGE_CONFIGURATION\nfrom terminal.</string>
+    <string name="permission_needed_title">Permission needed</string>
+    <string name="hint_request_duration">Api call min duration: 5s default</string>
+    <string name="launch_demo_activity">Launch example usage activity</string>
+    <string name="launch_config_change_test_activity">Launch configuration change test activity</string>
+
 </resources>
