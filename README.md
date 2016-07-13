@@ -1,4 +1,5 @@
 # RxPhoenix
+[![Build Status](https://travis-ci.org/Centralway/RxPhoenix.svg?branch=master)](https://travis-ci.org/Centralway/RxPhoenix)
 Automatic Lifecycle management for Android reactive projects.
 
 ### What RxPhoenix does
