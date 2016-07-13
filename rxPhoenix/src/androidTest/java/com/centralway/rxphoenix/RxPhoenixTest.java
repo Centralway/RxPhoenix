@@ -3,6 +3,7 @@ package com.centralway.rxphoenix;
 import android.os.Bundle;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +11,6 @@ import org.junit.runner.RunWith;
 import java.util.Collections;
 
 import rx.Observable;
-import rx.Observer;
 import rx.Subscription;
 import rx.observers.TestSubscriber;
 import rx.schedulers.TestScheduler;
@@ -35,6 +35,12 @@ public class RxPhoenixTest {
         mEventSubject = TestSubject.create(mEventScheduler);
 
         mTestHost = new TestHost(mEventSubject.asObservable(), mLifecycleSubject.asObservable());
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        mLifecycleSubject.onNext(new LifecycleEvent.DieEvent());
+        mLifecycleScheduler.triggerActions();
     }
 
     @Test
@@ -119,22 +125,7 @@ public class RxPhoenixTest {
 
         @RxPhoenixSubscription(SUBSCRIPTION_ID)
         public Subscription eventSubscription(Observable<Integer> observable) {
-            return observable.subscribe(new Observer<Integer>() {
-                @Override
-                public void onCompleted() {
-                    System.out.print("com");
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    System.out.print("err");
-                }
-
-                @Override
-                public void onNext(Integer integer) {
-                    System.out.print("next : " + integer);
-                }
-            });
+            return observable.subscribe(mTestSubscriber);
         }
 
         public TestSubscriber<Integer> getTestSubscriber() {
